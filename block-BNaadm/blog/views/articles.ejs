@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Articles</h1>
+    <div>
+        <a href="/articles/new">
+            <button>Create Article</button>
+        </a>
+        <a href="/" style="padding: 0 1rem;">Home Page</a>
+    </div>
+    <div>
+        <% articles.forEach(article => { %>
+            <div style="margin: 2rem 0; padding: 2rem; border: 2px solid black;">
+                <h2><%= article.title %></h2>
+                <a href="/articles/<%= article.id %>">Learn More</a>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%= article.title%></h1>
+    <p><%= article.description %></p>
+    <p><%= article.tags %></p>
+    <p><%= article.author %></p>
+    <p><%= article.likes %></p>
+    <div>
+        <a href="/articles/<%= article.id%>/edit">
+            <button>Edit</button>
+        </a>
+        <a href="/articles/<%= article.id%>/delete" style="padding: 0 1rem;">
+            <button>Delete</button>
+        </a>
+        <a href="/articles">
+            <button>List All Articles</button>
+        </a>
+        <a href="/">
+            <button>Home Page</button>
+        </a>
+        
+    </div>
+    <div>
+        <div>
+            <form action="/articles/<%= article.id%>/comment" method="POST"> 
+                <div >
+                    Content
+                    <textarea name="content" id="" cols="30" rows="10"></textarea>
+                </div>
+                <div>
+                    Author
+                    <input type="text" name= "author">
+                </div>
+                <button type="submit">Comment</button>
+            </form>
+        </div>
+        <div style="padding: 2rem 0; ">
+            <% article.comments.forEach(comment => { %>
+                <div style="border-bottom: 2px solid black;">
+                    <div>
+                        <p><%= comment.content%></p>
+                        <span style="background-color: coral; padding: 0.25rem 1rem;">By :<%= comment. author%></span>
+                        <span style="background-color: cornflowerblue; padding: 0.25rem 1rem;">Likes: <%= comment.likes%></span>
+                    </div>
+                    
+                    <div style="padding: 1rem 0;">
+                        <a href="/comments/<%= comment.id%>/edit" style="padding: 0 0.5rem ;">
+                            <button>Edit</button>
+                        </a>
+                        <a href="/comments/<%= comment.id%>/delete" style="padding:0 0.5rem;">
+                            <button>Delete</button>
+                        </a>
+                        <a href="/comments/<%= comment.id%>/likes/increment" style="padding: 0 0.5rem;">
+                            <button>Like</button>
+                        </a>
+                        <a href="/comments/<%= comment.id%>/likes/decrement" style="padding: 0 0.5rem;">
+                            <button>Dislike</button>
+                        </a>
+                    </div>
+                </div>
+            <% })%>
+        </div>
+    </div>
+</body>
+</html>
