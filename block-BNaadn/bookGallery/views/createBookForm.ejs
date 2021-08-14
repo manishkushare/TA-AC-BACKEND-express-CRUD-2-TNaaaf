@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="/books" method="POST" enctype="multipart/form-data" >
+        <div>
+            Title
+            <input type="text" name="title">
+        </div>
+        <div>
+            Summary
+            <textarea name="summary" id="" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            Pages 
+            <input type="number" name="pages">
+        </div>
+        <div>
+            Publications
+            <input type="text" name="publications">
+        </div>
+        <div>
+            Cover Image
+            <input type="file" name="cover-image" placeholder="Add profile">
+        </div>
+        <div>
+            Author Name :
+            <input type="text" name="author-name" id="">
+        </div>
+        <div>
+            Author Email:
+            <input type="email" 41="author-email" id="">
+        </div>
+        <div>
+            Author country
+            <input type="text" name="author-country" id="">
+        </div>
+        <div>
+            Category:
+            <input type="text" name="category">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
