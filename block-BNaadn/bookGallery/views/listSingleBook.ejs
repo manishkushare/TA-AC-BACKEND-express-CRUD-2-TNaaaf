@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% console.log(book) %> 
+    <h1><%= book.title%></h1>
+    <div style="margin: auto 0; width: 50%">
+
+        <img styl e="width: 100%; " src="/uploads/<%= book['cover-image'] %>" alt="">
+    </div>
+    <p><%= book.summary%></p>
+    <p><%= book.pages%></p>
+    <p><%= book.publications%></p>
+    <p><%= book.authorId['author-name']%></p>
+    <p><%= book.authorId['author-email']%></p>
+    <p><%= book.authorId['author-country']%></p>
+    <p><% book.categoryId.forEach(c => { %>
+        <%= c.category%>
+    <% })%>
+    </p>
+    <div>
+        <a href="/books/<%= book.id%>/edit">
+            <button>Edit</button>
+        </a>
+        <a href="/books/<%= book.id%>/delete">
+            <button>Delete</button>
+        </a>
+        <a href="/">
+            <button>
+                Home
+            </button>
+        </a>
+        <a href="/books">
+            <button>List All Books</button>
+        </a>
+    </div>
+
+</body>
+</html>
