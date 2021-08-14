@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="/books/<%= book.id%>" method="POST">
+        <div>
+            Title
+            <input type="text" name="title" value="<%= book.title %>">
+        </div>
+        <div>
+            Summary
+            <textarea name="summary" id="" cols="30" rows="10"><%= book.summary%></textarea>
+        </div>
+        <div>
+            Pages 
+            <input type="number" name="pages" value="<%= book.pages%>">
+        </div>
+        <div>
+            Publications
+            <input type="text" name="publications" value="<%= book.publications%>">
+        </div>
+        <div>
+            Cover Image
+            <input type="text" name="cover-image" value="<%= book['cover-image'] %>">
+        </div>
+        <div>
+            Author Name :
+            <input type="text" name="author-name" id="" value="<%= book.authorId['author-name']%>">
+        </div>
+        <div>
+            Author Email:
+            <input type="email" 41="author-email" id="" value="<%= book.authorId['author-email'] %>">
+        </div>
+        <div>
+            Author country
+            <input type="text" name="author-country" id="" value="<%= book.authorId['author-country'] %>">
+        </div>
+        <div>
+            Category :
+            <input type="text" name="category" value="<% book.categoryId.forEach(c => { %>
+                <%= c.category%>
+            <% }) %>">
+
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
